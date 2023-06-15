@@ -34,6 +34,7 @@ header {
   font-size: 14px;
   padding: 0px 8px;
   white-space: nowrap;
+  cursor: pointer;
 }
 
 #blog-item {
@@ -54,6 +55,7 @@ main {
 
 img {
   width: 80px;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=styles.css.map */
