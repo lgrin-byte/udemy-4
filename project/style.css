@@ -1,0 +1,23 @@
+.info-wrap{
+    display: flex;
+    flex-direction: column;
+}
+
+.ment{
+    color: blue;
+}
+
+img{
+    width: 100px;
+    border-radius: 50%;
+    margin-right: 100px;
+    margin-left: 10px;
+}
+
+.header{
+    display: flex;
+}
+
+dt{
+    font-weight: 700;
+}
