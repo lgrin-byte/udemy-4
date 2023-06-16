@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이미지 랜덤 변환</title>
+</head>
+
+<body>
+  <div>
+    <img id="img" src="/jh/0616/JS - 실습2/imgs/1.jpg" alt="" srcset="">
+  </div>
+  <script>
+    const images = [
+      '/jh/0616/JS - 실습2/imgs/1.jpg',
+      '/jh/0616/JS - 실습2/imgs/2.jpg',
+      '/jh/0616/JS - 실습2/imgs/3.jpg',
+      '/jh/0616/JS - 실습2/imgs/4.jpg',
+      '/jh/0616/JS - 실습2/imgs/5.jpg',
+      '/jh/0616/JS - 실습2/imgs/6.jpg',
+      '/jh/0616/JS - 실습2/imgs/7.jpg',
+      '/jh/0616/JS - 실습2/imgs/8.jpg',
+    ];
+    const $img = document.querySelector('#img');
+
+    $img.addEventListener('click', (e) => {
+      const index = Math.floor(Math.random() * images.length);
+      e.target.src = images[index];
+    })
+  </script>
+</body>
+
+</html>
