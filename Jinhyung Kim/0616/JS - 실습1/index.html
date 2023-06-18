@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>간단한 계산기 만들기</title>
+</head>
+
+<body>
+  <form>
+    <input type="number" id="num1">
+    <select id="operator">
+      <option>operator</option>
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select>
+    <input type="number" id="num2">
+    <button id="button">계산</button>
+  </form>
+  <div>
+    결과 : <span id="result"></span>
+  </div>
+
+  <script>
+    const $button = document.querySelector('#button');
+    const $num1 = document.querySelector('#num1');
+    const $num2 = document.querySelector('#num2');
+    const $operator = document.querySelector('#operator');
+    const $result = document.querySelector('#result');
+
+    let num1;
+    let num2;
+    let operator;
+    let result;
+
+    $num1.addEventListener('input', (e) => {
+      num1 = e.target.value;
+    });
+    $num2.addEventListener('input', (e) => {
+      num2 = e.target.value;
+    })
+    $operator.addEventListener('input', (e) => {
+      operator = e.target.value;
+    })
+
+    $button.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      switch (operator) {
+        case '+':
+          result = Number(num1) + Number(num2);
+          break;
+        case '-':
+          result = Number(num1) - Number(num2);
+          break;
+        case '*':
+          result = Number(num1) * Number(num2);
+          break;
+        case '/':
+          result = Number(num1) / Number(num2);
+          break;
+        case undefined:
+          alert('연산자를 선택해주세요!');
+          break;
+      }
+
+      $result.innerText = result;
+    });
+  </script>
+</body>
+
+</html>
