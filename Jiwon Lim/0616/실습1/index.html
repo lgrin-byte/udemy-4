@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <input id="input1" />
+      <input id="input2" />
+      <button onclick="handleClickCalculateButton()">계산하기</button>
+    </div>
+    <div class="result"></div>
+    <script>
+      const handleClickCalculateButton = () => {
+        let result = document.querySelector(".result");
+        let div = document.createElement("div");
+        let [addition, subtraction, multiplication, division] = calculator();
+        div.innerHTML = `덧셈 결과 : ${addition} </br>
+        뺄셈 결과 : ${subtraction} </br>
+        곱셈 결과 : ${multiplication} </br>
+        나눗셈 결과 : ${division}
+        `;
+        result.appendChild(div);
+      };
+
+      const calculator = () => {
+        let number1 = parseInt(document.querySelector("#input1").value);
+        let number2 = parseInt(document.querySelector("#input2").value);
+        let [addition, subtraction, multiplication, division] = [
+          number1 + number2,
+          number1 - number2,
+          number1 * number2,
+          number1 / number2,
+        ];
+        return [addition, subtraction, multiplication, division];
+      };
+    </script>
+  </body>
+</html>

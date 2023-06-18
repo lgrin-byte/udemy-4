@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="clock"></div>
+
+    <script>
+      const getTime = () => {
+        let time = new Date();
+        let year = time.getFullYear();
+        let month = time.getMonth();
+        let date = time.getDate();
+        let hour = time.getHours();
+        let minute = time.getMinutes();
+        let second = time.getSeconds();
+        document.querySelector(
+          ".clock"
+        ).innerHTML = `${year}년 ${month}월 ${date}일 ${hour}시 ${minute}분 ${second}초`;
+      };
+      getTime();
+      setInterval(getTime, 1000);
+    </script>
+  </body>
+</html>
