@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>할 일 목록 만들기</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    form {
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      padding: 5px;
+    }
+
+    button {
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      display: flex;
+      margin-bottom: 10px;
+    }
+
+    .todo-item {
+      display: flex;
+      align-items: center;
+    }
+
+    .todo-item-text {
+      flex-grow: 1;
+    }
+
+    .remove-btn {
+      margin-left: 10px;
+      padding: 2px 6px;
+      background-color: #ff6666;
+      border: none;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <form>
+    <input type="text" id="todo-input" placeholder="할 일을 입력하세요">
+    <button id="add-button">추가</button>
+  </form>
+  <ul id="todo-list">
+  </ul>
+  <script>
+    const $input = document.querySelector('input');
+    const $form = document.querySelector('form');
+    const $toDoList = document.querySelector('#todo-list');
+
+    let newTodo = '';
+    $input.addEventListener('input', (e) => {
+      newTodo = e.target.value;
+    })
+    $form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      if (!newTodo) return;
+      const todo = document.createElement('li');
+      todo.innerHTML = `
+        <div>${newTodo}</div>
+        <button class="remove-btn">삭제</button>
+      `;
+      $toDoList.appendChild(todo);
+
+      newTodo = '';
+      $input.value = '';
+      $input.focus();
+
+      onClickRemoveBtn();
+    });
+
+    const onClickRemoveBtn = () => {
+      const removeBtns = document.querySelectorAll('.remove-btn');
+      removeBtns.forEach((removeBtn) => {
+        removeBtn.addEventListener('click', (e) => {
+          $toDoList.removeChild(e.target.parentElement);
+        })
+      })
+    }
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>장바구니 카트 만들기</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
+
+    .product-container {
+      display: flex;
+      justify-content: space-between;
+      width: 300px;
+      border: 1px solid grey;
+      padding: 10px 20px;
+      margin-bottom: 10px;
+    }
+
+    .product-container h3 {
+      margin: 0;
+    }
+
+    .product-container span {
+      font-weight: bold;
+    }
+
+    .add-to-cart-btn {
+      width: 100px;
+      padding: 2px 4px;
+      background-color: green;
+      color: white;
+      border: none;
+      margin: 5px 0;
+      cursor: pointer;
+    }
+
+    .cart {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .cart h2 {
+      margin: 0;
+    }
+
+    .cart-item-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .cart-item-list li {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="product-container">
+    <div>
+      <h3>사과</h3>
+      <span>1000원</span>
+    </div>
+    <button class="add-to-cart-btn">장바구니에 추가</button>
+  </div>
+  <div class="product-container">
+    <div>
+      <h3>바나나</h3>
+      <span>1500원</span>
+    </div>
+    <button class="add-to-cart-btn">장바구니에 추가</button>
+  </div>
+  <div class="cart">
+    <h2>장바구니</h2>
+    <ul class="cart-item-list"></ul>
+  </div>
+  <script>
+    const buttons = document.querySelectorAll('.add-to-cart-btn');
+    const cartItemList = document.querySelector('.cart-item-list');
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', (e) => {
+        const item = e.target.previousElementSibling.querySelector('h3').textContent;
+        const price = e.target.previousElementSibling.querySelector('span').textContent;
+
+        const cartItem = document.createElement('li');
+        cartItem.textContent = `${item} - ${price}`;
+        cartItemList.appendChild(cartItem);
+      });
+    });
+  </script>
+</body>
+
+</html>
