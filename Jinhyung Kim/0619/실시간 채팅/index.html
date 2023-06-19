@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>실시간 채팅</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    span {
+      margin-right: 5px;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    input[type="text"] {
+      width: 200px;
+      padding: 5px;
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <ul id="chat-list">
+    <li>
+      <span>User1</span>: <span>안녕하세요!</span>
+    </li>
+    <li>
+      <span>User2</span>: <span>반갑습니다!</span>
+    </li>
+  </ul>
+  <form>
+    <input id="username" type="text" placeholder="사용자명">
+    <input id="message" type="text" placeholder="메세지를 입력하세요">
+    <button>전송</button>
+  </form>
+  <script>
+    const $form = document.querySelector('form');
+    const $username = document.querySelector('#username');
+    const $message = document.querySelector('#message');
+    const $button = document.querySelector('button');
+    const $chatList = document.querySelector('#chat-list');
+
+    let username;
+    let message;
+
+    $username.addEventListener('input', (e) => {
+      username = e.target.value;
+    });
+    $message.addEventListener('input', (e) => {
+      message = e.target.value;
+    });
+
+    $form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      if (!message || !username) return;
+
+      const chat = document.createElement('li');
+      chat.innerHTML = `
+        <span>${username}</span>: <span>${message}</span>
+      `;
+      $chatList.appendChild(chat);
+
+      $username.value = '';
+      $message.value = '';
+      username = '';
+      message = '';
+    });
+  </script>
+</body>
+
+</html>
