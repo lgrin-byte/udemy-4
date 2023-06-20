@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>이름 입력받기</title>
+</head>
+<body>
+    <label for="name">이름:</label>
+    <input type="text" id="name" name="name">
+    <button onclick="greet()">환영하기</button>
+    <p id="hello"></p>
+    <script>
+        function greet() {
+            var name = document.getElementById("name").value;
+            // alert(name + " 님 환영합니다!");
+            document.getElementById("hello").innerHTML = name + " 님 환영합니다!";
+        }
+    </script>
+</body>
+</html>
