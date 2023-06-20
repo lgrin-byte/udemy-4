@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>간단한 계산기</title>
+    <script>
+
+
+
+        function add() {
+            var num1 = parseFloat(document.getElementById("num1").value);
+            var num2 = parseFloat(document.getElementById("num2").value);
+            var result = num1 + num2;
+            document.getElementById("result").value = result;
+        }
+
+        function subtract() {
+            var num1 = parseFloat(document.getElementById("num1").value);
+            var num2 = parseFloat(document.getElementById("num2").value);
+            var result = num1 - num2;
+            document.getElementById("result").value = result;
+        }
+
+        function multiply() {
+            var num1 = parseFloat(document.getElementById("num1").value);
+            var num2 = parseFloat(document.getElementById("num2").value);
+            var result = num1 * num2;
+            document.getElementById("result").value = result;
+        }
+
+        function divide() {
+            var num1 = parseFloat(document.getElementById("num1").value);
+            var num2 = parseFloat(document.getElementById("num2").value);
+            var result = num1 / num2;
+            document.getElementById("result").value = result;
+        }
+
+        function choice() {
+            let result ={};
+            const operator = document.getElementById('operator');
+
+            result.operator = operator.options[operator.selectedIndex].value;
+            console.log(operator.options[operator.selectedIndex].value);
+
+            switch (result.operator) {
+                case "+":
+                    return add() 
+                    break;
+                case "-":
+                    return subtract() 
+                    break;
+                case "*":
+                    return multiply() 
+                    break;
+                case "/":
+                    return divide() 
+                    break;
+                default:
+                    break;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>간단한 계산기</h1>
+    <form>
+        <label for="num1">첫 번째 숫자:</label>
+        <input type="number" id="num1" name="num1"><br><br>
+
+        <label for="num2">두 번째 숫자:</label>
+        <input type="number" id="num2" name="num2"><br><br>
+
+        <label for="operator">연산자:</label>
+        <select id="operator" name="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select><br><br>
+
+        <input type="button" value="계산" onclick="choice()"><br><br>
+
+        <label for="result">결과:</label>
+        <input type="number" id="result" name="result" readonly>
+    </form>
+</body>
+</html>
