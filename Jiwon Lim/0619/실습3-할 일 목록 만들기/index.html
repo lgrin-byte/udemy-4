@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>할 일 목록 만들기</title>
+    <style>
+      .content {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <input placeholder="할 일을 입력하세요" />
+      <button onclick="post()">추가</button>
+    </div>
+    <div class="todolist"></div>
+    <script>
+      const todolist = document.querySelector(".todolist");
+      const post = () => {
+        const input = document.querySelector("input").value;
+        const content = document.createElement("div");
+        const text = document.createElement("div");
+        const deleteButton = document.createElement("button");
+        deleteButton.className = "deleteButton";
+        content.className = "content";
+        text.innerHTML = input;
+        deleteButton.innerHTML = "삭제";
+        content.appendChild(text);
+        content.appendChild(deleteButton);
+        todolist.appendChild(content);
+
+        const delButtons = document.querySelectorAll(".deleteButton");
+        // console.log(delButtons);
+        // console.log(content);
+
+        delButtons.forEach(() =>
+          deleteButton.addEventListener("click", e => {
+            e.target.parentElement.remove();
+          })
+        );
+      };
+    </script>
+  </body>
+</html>
