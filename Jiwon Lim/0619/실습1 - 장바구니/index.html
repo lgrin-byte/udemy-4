@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>장바구니 카트</title>
+    <style>
+      .items {
+        border: 1px solid gray;
+        padding: 20px;
+        margin-bottom: 30px;
+      }
+      .cart {
+        border: 1px solid darkblue;
+        padding: 20px;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="items">
+      <div class="item">사과</div>
+      <p class="price">1000원</p>
+      <button type="button" onclick="getItem(event)">카트에 추가</button>
+    </div>
+    <div class="items">
+      <div class="item">포도</div>
+      <p class="price">4000원</p>
+      <button type="button" onclick="getItem(event)">카트에 추가</button>
+    </div>
+    <div class="cart">
+      <h4>장바구니 목록</h4>
+      <ul></ul>
+    </div>
+    <script>
+      const getItem = e => {
+        let item = e.target.parentElement.firstChild.nextSibling.innerHTML;
+        let price = e.target.previousElementSibling.innerHTML;
+        let li = document.createElement("li");
+        li.innerHTML = `${item} ${price}`;
+        document.querySelector("ul").appendChild(li);
+      };
+    </script>
+  </body>
+</html>
