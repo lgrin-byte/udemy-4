@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       <title>날씨</title>
+  </head>
+  <body>
+    <div class="weather"></div>
+    <script type="module">
+      import { api_key } from "./utill/utill";
+
+      console.log(api_key);
+      // const weather = document.querySelector(".weather");
+      // const handleSuccess = pos => {
+      //   const latitude = pos.coords.latitude;
+      //   const longitude = pos.coords.longitude;
+      //   getWeather(latitude, longitude);
+      // };
+      // const handleError = err => {
+      //   console.log(err);
+      // };
+      // const init = () => {
+      //   navigator.geolocation.getCurrentPosition(handleSuccess, handleError);
+      // };
+      // const getWeather = (lat, long) => {
+      //   fetch(
+      //     `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${api_key}&units=metric `
+      //   )
+      //     .then(res => res.json())
+      //     .then(data => {
+      //       let location = data.name;
+      //       let temperature = data.main.temp;
+      //       weather.innerHTML = `나의 위치 : ${location} <br/> 현재 온도 : ${temperature}도`;
+      //       console.log(data);
+      //     });
+      // };
+      // init();
+    </script>
+  </body>
+</html>
