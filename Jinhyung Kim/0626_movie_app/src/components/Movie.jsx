@@ -39,11 +39,36 @@ const MoviePoster = styled.img`
   margin-bottom: 10px;
 `;
 
-export default function Movie({ id, year, title, summary, poster }) {
+const MovieGenreList = styled.ul`
+  display: flex;
+  padding: 0;
+`;
+
+const MovieGenre = styled.li`
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 10px;
+  list-style: none;
+  padding: 0;
+  margin-right: 10px;
+`;
+
+export default function Movie({ id, year, title, summary, poster, genres }) {
   return (
     <MovieContainer id={id}>
       <MovieTitle>{title}</MovieTitle>
       <MovieYear>{year}</MovieYear>
+      <MovieGenreList>
+        {
+          genres.map((genre, index) => {
+            return (
+              <MovieGenre key={index}>
+                {genre}
+              </MovieGenre>
+            )
+          })
+        }
+      </MovieGenreList>
       <MovieSummary>{summary}</MovieSummary>
       <MoviePoster src={poster} alt={title} />
     </MovieContainer>
@@ -56,4 +81,5 @@ Movie.propTypes = {
   title: PropTypes.string.isRequired,
   summary: PropTypes.string.isRequired,
   poster: PropTypes.string.isRequired,
+  genres: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
