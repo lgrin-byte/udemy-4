@@ -1,11 +1,11 @@
-import "./App.css";
-import ThemeSwitcher from './components/themeReducer';
+import "App.css";
+import Chat from "components/chat";
 
 function App() {
   return (
     <div className="App">
-      <h3>Lifecycle 에 대한 이해</h3>
-     <ThemeSwitcher/>
+       <h1>실시간 채팅</h1>
+      <Chat/>
     </div>
   );
 }
